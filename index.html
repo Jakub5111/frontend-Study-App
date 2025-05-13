@@ -1,25 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <title>Študijný Tracker</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sledovanie Štúdia</title>
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-    <h1>📚 Študijný Tracker</h1>
+    <div class="container">
+        <h1>Sledovanie Štúdia</h1>
 
-    <form id="activityForm">
-        <input type="text" id="topic" placeholder="Téma" required>
-        <input type="number" id="studyTime" placeholder="Minúty" required>
-        <input type="datetime-local" id="date" required>
-        <button type="submit">Pridať</button>
-    </form>
+        <section id="study-input">
+            <h2>Pridať Novú Aktivitu</h2>
+            <form id="activityForm"> <!-- ID FIXED -->
+                <label for="topic">Téma:</label>
+                <input type="text" id="topic" name="topic" required placeholder="Názov témy">
 
-    <button id="clearBtn">Vymazať všetky</button>
+                <label for="study_time">Trvanie (minúty):</label>
+                <input type="number" id="study_time" name="study_time" required min="1" placeholder="Počet minút"> 
 
-    <ul id="activityList"></ul>
+                <label for="date">Dátum a čas:</label>
+                <input type="datetime-local" id="date" name="date" required> <!-- MISSING FIELD FIXED -->
 
-    <script src="script.js"></script>
+                <button type="submit">Pridať Záznam</button>
+            </form>
+        </section>
+
+        <section id="study-history">
+            <h2>História Štúdia</h2>
+            <ul id="activities"> <!-- Change this to match the JavaScript -->
+            </ul>
+            <button id="clear-history">Vymazať Históriu</button>
+        </section>
+        
+
+        <section id="progress">
+            <h2>Prehľad Pokroku</h2>
+            <p id="total-time">Celkový čas štúdia: 0 minút</p>
+        </section>
+    </div>
+
+    <script src="static/script.js"></script>
 </body>
 </html>
