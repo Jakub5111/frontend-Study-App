@@ -4,9 +4,10 @@ from datetime import datetime
 import os
 from sqlalchemy import inspect, text
 from ai import ask_gemini
-
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
@@ -125,4 +126,7 @@ def check_connection():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5004)), debug=True)
+
+from flask_cors import CORS
+
 
